@@ -1,8 +1,28 @@
 # viralrateshifts
+Python scripts and instruction to collect metadata information and Sample SARS-CoV-2 divergence data used in the open analysis to reanalyze the mutatation rate analyis using peicewise linear analysis.
+
+## *** version
+The scripts in this repo parse and manipulate data (metadata and diveregence data) downloaded form Nextstrain's open ____ and reanalyze the mutation rate analysis. To run you need:
 
 
-## About the project
-This is the github repo for the analysis of shift in rate of mutation in COVID from Nextstrain divergence data. DOI: TBD
+```bash
+gh repo clone aortizsax/geneflowgeometries
+```
+
+```bash
+cd geneflowgeometries
+```
+
+```bash
+conda create -n geneflowgeometries python=3.9 ...
+```
+
+### Prerequisites
+
+If you wish to rerun this anaylsis please download the metadata from: 
+https://nextstrain.org/ncov/open/global/6m
+under the 'All sequences and metadata'
+
 
 ## Built with
 
@@ -14,11 +34,7 @@ This is the github repo for the analysis of shift in rate of mutation in COVID f
 * [![piecewise_regression][piecewise_regression.js]][piecewise_regression-url]
 
 
-### Prerequisites
 
-If you wish to rerun this anaylsis please download the metadata from: 
-https://nextstrain.org/ncov/open/global/6m
-under the 'All sequences and metadata'
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
