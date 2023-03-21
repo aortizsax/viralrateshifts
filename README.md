@@ -10,7 +10,7 @@ FLOWCHART
 ### Collect data
 First collect the data. Go to the latest global analysis provided by Nextstrain https://nextstrain.org/ncov/open/global/all-time), expand the window or click the menu bottom in the top right of the page and under 'Tree Options'&'Branch Length' click 'Clock'. Next, scroll to the bottom of the page, select 'DOWNLOAD DATA' and then 'TREE (NEWICK)'.  You will get a file named: nextstrain_ncov_open_global_all-time_tree.nwk . Finally, scroll to the bottom of the page, find 'ALL SEQUENCES AND METADATA'. Decompress this in the directory. You will get a file named: metadata.tsv. 
 
-### install locally
+### Install locally
 ```bash
 gh repo clone aortizsax/viralrateshifts
 ```
@@ -25,11 +25,43 @@ mv PATHTO/nextstrain_ncov_open_global_all-time_tree.nwk .
 mv PATHTO/metadata.tsv .
 ```
 
+### Assumptions
+
+Sampling rate is high and temporal space between sample low(to maximize P=K), very little to no recombination, and 
+
 ### Run Analysis 
 
-```bash
-python3 viralrateshifts.py -diveregence-tree nextstrain_ncov_open_global_all-time_tree.nwk -metadata metadata.tsv
+With the tree and metadata files in the working directory and viralrateshifts installed run the command below to build
+
+```{bash}
+python3 ./viral_rate_shifts.py -h
 ```
 
+This should return:
+````{bash}
+usage: viral_rate_shifts.py [-h] [-t DIVERGENCE_TREE] [-m METADATA] [-N N_BOOT]
+                            [-M MAX_BREAKPOINTS] [-o OUTPUT_PREFIX]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -t DIVERGENCE_TREE, --divergence-tree DIVERGENCE_TREE
+                        Divergence tree from Nextstrain [default=FILE].
+  -m METADATA, --metadata METADATA
+                        Metadata from Nextstrain [default=FILE].
+  -N N_BOOT, --n-boot N_BOOT
+                        Number of bootstrap replicates for piecewise analysis[default=200].
+  -M MAX_BREAKPOINTS, --max-breakpoints MAX_BREAKPOINTS
+                        Max breakpoints [default=6].
+  -o OUTPUT_PREFIX, --output-prefix OUTPUT_PREFIX
+                        Prefix for output files [default=output].
+```
+
+To run the analysis:
+
+```bash
+python3 viral_rate_shifts.py -diveregence-tree nextstrain_ncov_open_global_all-time_tree.nwk -metadata metadata.tsv
+```
+
+This will read the tree file and parse the metadata. Next, it will redo 
 
 
