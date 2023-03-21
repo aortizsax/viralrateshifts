@@ -20,8 +20,9 @@ cd viralrateshifts
 ```
 
 ```bash
-conda create -n viralrateshifts python=3.9 pandas matplotlib numpy scikit-learn mv PATHTO/nextstrain_ncov_open_global_all-time_tree.nwk . 
-mv PATHTO/metadata metadata.tsv .
+conda create -n viralrateshifts python=3.9 pandas==1.4.2 matplotlib==3.5.1 numpy==1.21.5 scikit-learn dendropy==4.5.2
+mv PATHTO/nextstrain_ncov_open_global_all-time_tree.nwk .
+mv PATHTO/metadata.tsv .
 ```
 
 ### Run Analysis 
